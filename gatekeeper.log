@@ -1,0 +1,10 @@
+2026-01-25 23:19:19,985 - INFO - Filtered 3 resources with delete/update actions
+2026-01-25 23:19:19,987 - INFO - 🔍 Analyzing plan file: /tmp/tmpyi9bsu_t.json
+2026-01-25 23:19:19,987 - INFO - Filtered 3 resources with delete/update actions
+2026-01-25 23:19:19,987 - INFO - Time-based rule activated: Upgrading warnings to CRITICAL
+2026-01-25 23:19:19,990 - INFO - 🔍 Analyzing plan file: /tmp/tmpr03xbccb.json
+2026-01-25 23:19:19,990 - INFO - Filtered 3 resources with delete/update actions
+2026-01-25 23:19:19,990 - INFO - Time-based rule activated: Upgrading warnings to CRITICAL
+2026-01-25 23:21:29,195 - INFO - 🔍 Analyzing plan file: plan.json
+2026-01-25 23:21:29,195 - INFO - Filtered 0 resources with delete/update actions
+2026-01-25 23:21:29,195 - INFO - Time-based rule activated: Upgrading warnings to CRITICAL
