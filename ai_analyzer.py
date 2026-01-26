@@ -133,9 +133,17 @@ class MockAIProvider(BaseAIProvider):
     
     def analyze_intent_mismatch(self, commit_message: str, plan_changes: str) -> str:
         """Mock analysis - returns MATCH for most cases"""
-        if 'delete' in plan_changes.lower() and 'update' in commit_message.lower():
-            return "MISMATCH: Intent suggests updates but plan shows deletions"
-        return "MATCH: Intent matches observed changes"
+        import json
+        try:
+            plan_data = json.loads(plan_changes)
+            has_deletes = any('delete' in change.get('actions', []) for change in plan_data)
+            has_creates = any('create' in change.get('actions', []) for change in plan_data)
+            
+            if 'update' in commit_message.lower() and (has_deletes or has_creates):
+                return "MISMATCH: Intent suggests updates but plan shows structural changes"
+            return "MATCH: Intent matches observed changes"
+        except:
+            return "MATCH: Intent matches observed changes"
     
     def generate_risk_summary(self, plan_changes: str, risks: List[Dict[str, Any]]) -> str:
         """Mock risk summary"""
