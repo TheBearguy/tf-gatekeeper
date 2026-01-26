@@ -8,3 +8,22 @@
 2026-01-25 23:21:29,195 - INFO - 🔍 Analyzing plan file: plan.json
 2026-01-25 23:21:29,195 - INFO - Filtered 0 resources with delete/update actions
 2026-01-25 23:21:29,195 - INFO - Time-based rule activated: Upgrading warnings to CRITICAL
+2026-01-26 15:11:08,228 - INFO - Filtered 3 resources with delete/update actions
+2026-01-26 15:11:08,232 - INFO - 🔍 Analyzing plan file: /tmp/tmp8wn0p4lt.json
+2026-01-26 15:11:08,232 - INFO - Filtered 3 resources with delete/update actions
+2026-01-26 15:11:08,237 - INFO - 🔍 Analyzing plan file: /tmp/tmp6o46y38a.json
+2026-01-26 15:11:08,237 - INFO - Filtered 3 resources with delete/update actions
+2026-01-26 15:12:09,877 - INFO - 🔍 Analyzing plan file: plan.json
+2026-01-26 15:12:09,878 - INFO - Filtered 0 resources with delete/update actions
+2026-01-26 15:15:57,089 - INFO - 🔍 Analyzing plan file: plan.json
+2026-01-26 15:15:57,090 - INFO - Filtered 0 resources with delete/update actions
+2026-01-26 15:16:29,964 - INFO - 🔍 Analyzing plan file: plan.json
+2026-01-26 15:16:29,965 - INFO - Filtered 5 resources with create/delete/update actions
+2026-01-26 15:16:38,206 - INFO - 🔍 Analyzing plan file: plan.json
+2026-01-26 15:16:38,207 - INFO - Filtered 5 resources with create/delete/update actions
+2026-01-26 15:16:38,207 - INFO - Filtered 5 resources with create/delete/update actions
+2026-01-26 15:17:13,050 - INFO - 🔍 Analyzing plan file: plan.json
+2026-01-26 15:17:13,050 - INFO - Filtered 5 resources with create/delete/update actions
+2026-01-26 15:17:13,051 - INFO - Filtered 5 resources with create/delete/update actions
+2026-01-26 15:24:23,672 - INFO - 🔍 Analyzing plan file: /tmp/tmp8cet19cj.json
+2026-01-26 15:24:23,673 - INFO - Filtered 3 resources with create/delete/update actions

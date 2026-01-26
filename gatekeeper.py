@@ -82,7 +82,7 @@ class TerraformGatekeeper:
             sys.exit(1)
 
     def filter_changes(self, plan_data: Dict[str, Any]) -> List[Dict[str, Any]]:
-        """Filter resource changes to only include delete or update actions"""
+        """Filter resource changes to include create, delete, or update actions"""
         if 'resource_changes' not in plan_data:
             return []
 
@@ -91,10 +91,10 @@ class TerraformGatekeeper:
             change = resource_change.get('change', {})
             actions = change.get('actions', [])
 
-            if 'delete' in actions or 'update' in actions:
+            if 'delete' in actions or 'update' in actions or 'create' in actions:
                 filtered_changes.append(resource_change)
 
-        logger.info(f"Filtered {len(filtered_changes)} resources with delete/update actions")
+        logger.info(f"Filtered {len(filtered_changes)} resources with create/delete/update actions")
         return filtered_changes
 
     def check_protected_resources(self, resource_change: Dict[str, Any]) -> Optional[Risk]:
