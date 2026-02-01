@@ -4,3 +4,6 @@ __pycache__/
 Makefile
 tfplan
 .venv/
+.github/
+.pre-commit-config.yaml
+tests/
