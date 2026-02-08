@@ -1,0 +1,24 @@
+# tf-gate Configuration
+opa:
+  policy_dir: "./policies"
+  strict_mode: true
+
+phases:
+  phase_3_time_gating:
+    friday_cutoff_hour: 15
+    weekend_blocking: true
+  
+phase_4_intent:
+    provider: "lmstudio"  # Using LMStudio for intent validation
+    model: "qwen2.5-coder-7b-instruct"
+    enabled: true  # Enable intent validation
+
+blast_radius:
+  thresholds:
+    green: 5
+    yellow: 20
+    red: 50
+
+notifications:
+  slack_webhook: null
+  pagerduty_key: null
