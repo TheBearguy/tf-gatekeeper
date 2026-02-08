@@ -15,8 +15,7 @@ deny[msg] if {
     resource.change.after.to_port == 65535
     
     msg := sprintf(
-        "SECURITY: Resource %s opens all ports (0-65535) to 0.0.0.0/0. " +
-        "This is a critical security risk.",
+        "SECURITY: Resource %s opens all ports (0-65535) to 0.0.0.0/0. This is a critical security risk.",
         [resource.address]
     )
 }
@@ -30,8 +29,7 @@ deny[msg] if {
     resource.change.after.from_port in {22, 3389, 27017, 6379, 5432, 3306}
     
     msg := sprintf(
-        "SECURITY: Resource %s opens sensitive port %d to 0.0.0.0/0. " +
-        "This violates security policy.",
+        "SECURITY: Resource %s opens sensitive port %d to 0.0.0.0/0. This violates security policy.",
         [resource.address, resource.change.after.from_port]
     )
 }
@@ -47,8 +45,7 @@ warn[msg] if {
     statement.Resource == "*"
     
     msg := sprintf(
-        "WARNING: IAM policy %s has overly permissive statement (Action: *, Resource: *). " +
-        "Consider using least-privilege access.",
+        "WARNING: IAM policy %s has overly permissive statement (Action: *, Resource: *). Consider using least-privilege access.",
         [resource.address]
     )
 }
@@ -60,8 +57,7 @@ deny[msg] if {
     not resource.change.after.storage_encrypted
     
     msg := sprintf(
-        "SECURITY: Resource %s does not have storage encryption enabled. " +
-        "Encryption is mandatory for all storage resources.",
+        "SECURITY: Resource %s does not have storage encryption enabled. Encryption is mandatory for all storage resources.",
         [resource.address]
     )
 }
@@ -73,8 +69,7 @@ deny[msg] if {
     not resource.change.after.server_side_encryption_configuration
     
     msg := sprintf(
-        "SECURITY: S3 bucket %s does not have server-side encryption enabled. " +
-        "Encryption is mandatory for all S3 buckets.",
+        "SECURITY: S3 bucket %s does not have server-side encryption enabled. Encryption is mandatory for all S3 buckets.",
         [resource.address]
     )
 }
@@ -85,8 +80,7 @@ warn[msg] if {
     resource.type == "aws_iam_user"
     
     msg := sprintf(
-        "WARNING: IAM user %s is being created. Consider using IAM roles instead " +
-        "for better security posture.",
+        "WARNING: IAM user %s is being created. Consider using IAM roles instead for better security posture.",
         [resource.address]
     )
 }
