@@ -25,8 +25,7 @@ deny[msg] if {
     not input.emergency_override
     
     msg := sprintf(
-        "COST: Resource %s uses expensive instance type %s. " +
-        "This instance costs >$10/hour. Verify this is necessary.",
+        "COST: Resource %s uses expensive instance type %s. This instance costs >$10/hour. Verify this is necessary.",
         [resource.address, resource.change.after.instance_type]
     )
 }
@@ -39,8 +38,7 @@ warn[msg] if {
     startswith(instance_type, "m5.16xlarge")
     
     msg := sprintf(
-        "COST: Resource %s uses large instance type %s. " +
-        "Consider if smaller instances would suffice.",
+        "COST: Resource %s uses large instance type %s. Consider if smaller instances would suffice.",
         [resource.address, instance_type]
     )
 }
@@ -56,8 +54,7 @@ warn[msg] if {
     nat_count > 1
     
     msg := sprintf(
-        "COST: Creating %d NAT gateways. Each NAT gateway costs ~$32/month plus data processing fees. " +
-        "Consider consolidating or using alternatives if possible.",
+        "COST: Creating %d NAT gateways. Each NAT gateway costs ~$32/month plus data processing fees. Consider consolidating or using alternatives if possible.",
         [nat_count]
     )
 }
@@ -77,8 +74,7 @@ deny[msg] if {
     expensive_count > 5
     
     msg := sprintf(
-        "COST: Creating %d expensive EC2 instances. Total estimated cost >$2000/month. " +
-        "Verify capacity requirements and consider reserved instances for long-term usage.",
+        "COST: Creating %d expensive EC2 instances. Total estimated cost >$2000/month. Verify capacity requirements and consider reserved instances for long-term usage.",
         [expensive_count]
     )
 }
