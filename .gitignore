@@ -7,3 +7,6 @@ tfplan
 .github/
 .pre-commit-config.yaml
 tests/
+bundle.tar.gz
+policies/bundle.tar.gz
+policies/opa
