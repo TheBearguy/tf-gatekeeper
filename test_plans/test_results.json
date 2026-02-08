@@ -1,0 +1,155 @@
+[
+  {
+    "plan_file": "tfplan_green.json",
+    "description": "GREEN: Low risk - 3 new web servers (creates only)",
+    "timestamp": "2026-02-08T16:31:00.200345",
+    "phases": {
+      "phase1": {
+        "status": "passed",
+        "blast_radius": {
+          "level": "green",
+          "total_resources": 3,
+          "create_count": 3,
+          "update_count": 0,
+          "delete_count": 0,
+          "replace_count": 0,
+          "critical_resources": []
+        }
+      },
+      "phase2": {
+        "status": "passed",
+        "deny_count": 0,
+        "warn_count": 0,
+        "deny_messages": [],
+        "warn_messages": []
+      },
+      "phase3": {
+        "status": "passed",
+        "temporal_risk": "MEDIUM",
+        "is_weekend": true,
+        "is_friday_afternoon": false,
+        "has_drift": false
+      },
+      "phase4_keyword": {
+        "status": "passed",
+        "aligned": false,
+        "confidence": 0.5,
+        "explanation": "Commit mentions tags but resources are being created"
+      },
+      "phase4_llm": {
+        "status": "passed",
+        "aligned": true,
+        "confidence": 0.95,
+        "explanation": "The commit message \"Add staging web servers for load testing\" aligns well with the Terraform changes, which involve creating security groups and instances specifically for web server infrastructure. There is a clear match between the intent stated in the commit message and the resources being provisioned.",
+        "has_report": true,
+        "report_file": "/home/thebearguy/batcave/tf-gatekeeper/test_plans/reports/tfplan_green_report_20260208_163114.md"
+      }
+    },
+    "should_block": false,
+    "status": "completed"
+  },
+  {
+    "plan_file": "tfplan_yellow.json",
+    "description": "YELLOW: Medium risk - 9 resources with 1 replacement",
+    "timestamp": "2026-02-08T16:31:14.042351",
+    "phases": {
+      "phase1": {
+        "status": "passed",
+        "blast_radius": {
+          "level": "yellow",
+          "total_resources": 9,
+          "create_count": 8,
+          "update_count": 0,
+          "delete_count": 0,
+          "replace_count": 1,
+          "critical_resources": []
+        }
+      },
+      "phase2": {
+        "status": "passed",
+        "deny_count": 0,
+        "warn_count": 0,
+        "deny_messages": [],
+        "warn_messages": []
+      },
+      "phase3": {
+        "status": "passed",
+        "temporal_risk": "MEDIUM",
+        "is_weekend": true,
+        "is_friday_afternoon": false,
+        "has_drift": false
+      },
+      "phase4_keyword": {
+        "status": "passed",
+        "aligned": true,
+        "confidence": 0.9,
+        "explanation": "Commit message aligns with planned changes"
+      },
+      "phase4_llm": {
+        "status": "passed",
+        "aligned": true,
+        "confidence": 0.95,
+        "explanation": "The commit message \"Scale up worker pool and replace load balancer\" accurately reflects the infrastructure changes made, which include scaling up the worker pool by creating multiple instances (`aws_instance.web[0]` to `aws_instance.web[6]`) and replacing the existing load balancer (`aws_lb.main`).",
+        "has_report": true,
+        "report_file": "/home/thebearguy/batcave/tf-gatekeeper/test_plans/reports/tfplan_yellow_report_20260208_163127.md"
+      }
+    },
+    "should_block": false,
+    "status": "completed"
+  },
+  {
+    "plan_file": "tfplan_red.json",
+    "description": "RED: High risk - 23 resources, deletions of critical DB/KMS/S3, security violation",
+    "timestamp": "2026-02-08T16:31:27.938610",
+    "phases": {
+      "phase1": {
+        "status": "passed",
+        "blast_radius": {
+          "level": "red",
+          "total_resources": 23,
+          "create_count": 6,
+          "update_count": 0,
+          "delete_count": 15,
+          "replace_count": 2,
+          "critical_resources": [
+            "aws_db_instance.production_main",
+            "aws_s3_bucket.data_lake",
+            "aws_kms_key.main",
+            "aws_dynamodb_table.users",
+            "aws_rds_cluster.aurora"
+          ]
+        }
+      },
+      "phase2": {
+        "status": "passed",
+        "deny_count": 0,
+        "warn_count": 0,
+        "deny_messages": [],
+        "warn_messages": []
+      },
+      "phase3": {
+        "status": "passed",
+        "temporal_risk": "MEDIUM",
+        "is_weekend": true,
+        "is_friday_afternoon": false,
+        "has_drift": false
+      },
+      "phase4_keyword": {
+        "status": "passed",
+        "aligned": true,
+        "confidence": 0.9,
+        "explanation": "Commit message aligns with planned changes"
+      },
+      "phase4_llm": {
+        "status": "passed",
+        "aligned": false,
+        "confidence": 0.6,
+        "explanation": "The git commit message mentions \"Update database configuration and security groups,\" which is partially reflected in the Terraform changes, including modifications to RDS and security groups. However, there are significant resource deletions and creations that are not mentioned in the commit message, such as S3 bucket creation, new worker instances, and DynamoDB table deletion.",
+        "has_report": true,
+        "report_file": "/home/thebearguy/batcave/tf-gatekeeper/test_plans/reports/tfplan_red_report_20260208_163146.md"
+      }
+    },
+    "should_block": true,
+    "status": "completed"
+  }
+]

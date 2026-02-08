@@ -1,0 +1,142 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.7.0",
+  "timestamp": "2024-02-08T10:00:00Z",
+  "resource_changes": [
+    {
+      "address": "aws_security_group.web",
+      "type": "aws_security_group",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "name": "web-security-group",
+          "description": "Security group for web servers",
+          "vpc_id": "vpc-12345678"
+        }
+      }
+    },
+    {
+      "address": "aws_instance.web[0]",
+      "type": "aws_instance",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "ami": "ami-12345678",
+          "instance_type": "t3.small",
+          "tags": {
+            "Name": "web-server-1"
+          }
+        }
+      }
+    },
+    {
+      "address": "aws_instance.web[1]",
+      "type": "aws_instance",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "ami": "ami-12345678",
+          "instance_type": "t3.small",
+          "tags": {
+            "Name": "web-server-2"
+          }
+        }
+      }
+    },
+    {
+      "address": "aws_instance.web[2]",
+      "type": "aws_instance",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "ami": "ami-12345678",
+          "instance_type": "t3.small",
+          "tags": {
+            "Name": "web-server-3"
+          }
+        }
+      }
+    },
+    {
+      "address": "aws_instance.web[3]",
+      "type": "aws_instance",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "ami": "ami-12345678",
+          "instance_type": "t3.small",
+          "tags": {
+            "Name": "web-server-4"
+          }
+        }
+      }
+    },
+    {
+      "address": "aws_instance.web[4]",
+      "type": "aws_instance",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "ami": "ami-12345678",
+          "instance_type": "t3.small",
+          "tags": {
+            "Name": "web-server-5"
+          }
+        }
+      }
+    },
+    {
+      "address": "aws_instance.web[5]",
+      "type": "aws_instance",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "ami": "ami-12345678",
+          "instance_type": "t3.small",
+          "tags": {
+            "Name": "web-server-6"
+          }
+        }
+      }
+    },
+    {
+      "address": "aws_instance.web[6]",
+      "type": "aws_instance",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "ami": "ami-12345678",
+          "instance_type": "t3.small",
+          "tags": {
+            "Name": "web-server-7"
+          }
+        }
+      }
+    },
+    {
+      "address": "aws_lb.main",
+      "type": "aws_lb",
+      "change": {
+        "actions": ["delete", "create"],
+        "before": {
+          "name": "old-lb",
+          "internal": false,
+          "load_balancer_type": "application"
+        },
+        "after": {
+          "name": "new-lb",
+          "internal": false,
+          "load_balancer_type": "application"
+        }
+      }
+    }
+  ]
+}

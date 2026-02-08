@@ -1,0 +1,64 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.7.0",
+  "timestamp": "2024-02-08T10:00:00Z",
+  "resource_changes": [
+    {
+      "address": "aws_security_group.web",
+      "type": "aws_security_group",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "name": "web-security-group",
+          "description": "Security group for web servers",
+          "vpc_id": "vpc-12345678",
+          "ingress": [
+            {
+              "from_port": 80,
+              "to_port": 80,
+              "protocol": "tcp",
+              "cidr_blocks": ["10.0.0.0/8"]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "address": "aws_instance.web[0]",
+      "type": "aws_instance",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "ami": "ami-12345678",
+          "instance_type": "t3.micro",
+          "subnet_id": "subnet-12345678",
+          "vpc_security_group_ids": ["sg-12345678"],
+          "tags": {
+            "Name": "web-server-1",
+            "Environment": "staging"
+          }
+        }
+      }
+    },
+    {
+      "address": "aws_instance.web[1]",
+      "type": "aws_instance",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": {
+          "ami": "ami-12345678",
+          "instance_type": "t3.micro",
+          "subnet_id": "subnet-12345678",
+          "vpc_security_group_ids": ["sg-12345678"],
+          "tags": {
+            "Name": "web-server-2",
+            "Environment": "staging"
+          }
+        }
+      }
+    }
+  ]
+}
